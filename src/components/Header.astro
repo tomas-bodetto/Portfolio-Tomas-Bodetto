@@ -1,0 +1,54 @@
+---
+//import { useState } from "astro/client"; // Solo carga el script en el cliente
+---
+<header class="w-full bg-black shadow-md fixed top-0 left-0 z-50">
+    <div class="w-full xl:w-[1120px] mx-auto flex items-center justify-between py-5 px-6 relative">
+      
+      <!-- Botón del menú hamburguesa en móviles -->
+      <button id="menu-toggle" class="md:hidden text-2xl text-white h-10 w-10 flex items-center justify-center absolute right-6 top-1/2 -translate-y-1/2">
+        ☰  
+      </button>
+  
+      <!-- Menú en pantallas grandes -->
+      <nav class="hidden md:flex flex-1 justify-center gap-x-10">
+        <a href="#top" class="text-white hover:text-blue-500">Inicio</a>
+        <a href="#sobre-mi" class="text-white hover:text-blue-500">Sobre mí</a>
+        <a href="#educacion" class="text-white hover:text-blue-500">Educación</a>
+        <a href="#experiencia" class="text-white hover:text-blue-500">Experiencia</a>
+        <a href="#proyectos" class="text-white hover:text-blue-500">Proyectos</a>
+      </nav>
+    </div>
+  
+    <!-- Menú móvil -->
+    <div id="mobile-menu" class="hidden flex flex-col items-center w-full absolute top-full left-0 bg-black shadow-md p-5 border-t border-gray-700">
+      <a href="#top" class="block py-2 text-white hover:text-blue-500 menu-link">Inicio</a>
+      <a href="#sobre-mi" class="block py-2 text-white hover:text-blue-500 menu-link">Sobre mí</a>
+      <a href="#educacion" class="block py-2 text-white hover:text-blue-500 menu-link">Educación</a>
+      <a href="#experiencia" class="block py-2 text-white hover:text-blue-500 menu-link">Experiencia</a>
+      <a href="#proyectos" class="block py-2 text-white hover:text-blue-500 menu-link">Proyectos</a>
+    </div>
+  </header>
+  
+  <!-- Script para manejar el menú hamburguesa -->
+  <script is:inline>
+    document.addEventListener("DOMContentLoaded", () => {
+      const menuToggle = document.getElementById("menu-toggle");
+      const mobileMenu = document.getElementById("mobile-menu");
+      const menuLinks = document.querySelectorAll(".menu-link");
+  
+      if (menuToggle && mobileMenu) {
+        // Toggle para abrir/cerrar el menú
+        menuToggle.addEventListener("click", () => {
+          mobileMenu.classList.toggle("hidden");
+        });
+  
+        // Cerrar el menú cuando se hace clic en un enlace
+        menuLinks.forEach(link => {
+          link.addEventListener("click", () => {
+            mobileMenu.classList.add("hidden");
+          });
+        });
+      }
+    });
+  </script>
+  

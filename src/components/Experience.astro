@@ -1,0 +1,24 @@
+---
+import ExperienceItem from '../components/ExperienceItem.astro';
+
+const EXPERIENCE = [
+{
+    date: 'Junio 2023 - Actualmente',
+    title: 'Editor de videos Freelance para redes sociales',
+    description: 'Editor de contenido en formato vertical para + de 15 creadores de contenido en Instagram',
+    link: '#',
+
+}
+]
+---
+
+<ol class="relative border-s border-gray-200 ml-3">
+    {
+        EXPERIENCE.map(experience => (
+            <li class="mb-10 ms-4">
+                <ExperienceItem {...experience} />
+            </li>    
+        ))
+    }                  
+</ol>
+

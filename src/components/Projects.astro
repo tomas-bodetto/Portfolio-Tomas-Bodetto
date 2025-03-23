@@ -1,0 +1,87 @@
+---
+import GitHub from "./icons/GitHub.astro";
+import SocialPill from '../components/SocialPill.astro';
+import GitHubIcon from '../components/icons/GitHub.astro'
+import NavegacionIcon from '../components/icons/Navegacion.astro'
+
+const PROJECTS = [
+    {
+        title: 'Blog de café',
+        description: 'Un espacio dedicado a los amantes del café, donde cada entrada revela secretos sobre su historia, preparación y variedades. Además, ofrece acceso a cursos exclusivos para profundizar en el arte de esta apasionante bebida. Diseñado con un enfoque limpio y elegante, ideal para quienes desean explorar el mundo del café desde una perspectiva auténtica',
+        link: 'https://proyectoblogdecafe-tb.netlify.app/',
+        github: 'https://github.com/tomas-bodetto/Blog-de-Cafe',
+        image: '/projects/cafe1.webp',
+        tags: ['HTML', 'CSS'],
+    },
+    {
+        title: 'Festival de Música',
+        description: 'Este sitio web ofrece toda la información esencial de un festival: lineup detallado con artistas, días y horarios, una vibrante galería de fotos para revivir la energía del evento y detalles sobre la venta de boletos. Diseñado con una interfaz moderna para brindar una navegación intuitiva y atractiva',
+        link: 'https://festival-de-musica123.netlify.app/',
+        github: 'https://github.com/tomas-bodetto/Festival-de-Musica',
+        image: '/projects/festival1.webp',
+        tags: ['HTML', 'SCSS', 'JavaScript'],
+    },
+    {
+        title: 'Rick & Morty API',
+        description: 'Una plataforma interactiva para los fans de Rick & Morty. Este sitio web consume la API oficial de la serie para brindar información detallada sobre sus personajes, incluyendo nombres, especies, estado (vivo o muerto) y la cantidad de episodios en los que aparecen. Con una interfaz dinámica y ágil, ofrece una experiencia fluida y atractiva, ideal para explorar el multiverso de esta icónica serie',
+        link: 'https://rick-morty-tb.netlify.app/',
+        github: 'https://github.com/tomas-bodetto/rick-morty-Reactjs',
+        image: '/projects/RickMorty1.webp',
+        tags: ['React', 'CSS'],
+    },
+    {
+        title: 'Creador de tareas por hacer',
+        description: 'Una aplicación intuitiva y eficiente para gestionar tareas diarias. Permite crear tareas y añadirlas a un listado, organizadas por categorías como Deporte, Casa, Oficina u Otra, brindando una mejor organización. Con una interfaz limpia y moderna, los usuarios pueden agregar nuevas tareas y eliminarlas fácilmente según sus necesidades. Diseñada para optimizar la productividad con una experiencia fluida e interactiva',
+        link: 'https://todo-list-tb.netlify.app/',
+        github: 'https://github.com/tomas-bodetto/todolist',
+        image: '/projects/tareas1.webp',
+        tags: ['React', 'Semantic UI React'],
+    },
+    {
+        title: 'Frontend Store',
+        description: 'Diseño de la interfaz para un e-commerce de camisetas, ofreciendo una experiencia visual atractiva y sencilla. Los usuarios pueden explorar los productos, ver imágenes de las camisetas y conocer sus precios en un entorno limpio y bien estructurado. Creado con un diseño responsive para garantizar una navegación fluida en cualquier dispositivo',
+        link: 'https://frontendstoretb.netlify.app/',
+        github: 'https://github.com/tomas-bodetto/Frontend-Store',
+        image: '/projects/store1.webp',
+        tags: ['HTML', 'CSS'],
+    },
+    {
+        title: 'Sitio Freelancer',
+        description: 'Un sitio web estático diseñado para profesionales independientes que buscan destacar su trabajo. Con una estructura limpia y minimalista, ofrece una presentación clara y atractiva de servicios, habilidades y contacto, ideal para captar la atención de clientes potenciales. Optimizado para una navegación fluida en cualquier dispositivo',
+        link: 'https://sitio-freelancer-tb.netlify.app/',
+        github: 'https://github.com/tomas-bodetto/Sitio-Freelancer',
+        image: '/projects/Freelancer1.webp',
+        tags: ['HTML', 'CSS'],
+    },
+]
+---
+
+{
+    PROJECTS.map(({ image, title, description, tags, github, link }) =>(
+        <article class="mb-8 p-6">
+            <h3 class="text-2xl font-semibold text-yellow-200 mb-2">{title}</h3>
+            <p class="text-lg mb-4 text-pretty">{description}</p>
+            <ul class="flex gap-2 flex-row flex-wrap mb-2">
+                {tags.map(tag => (
+                    <li >
+                        <span class="flex items-center justify-center rounded-full bg-yellow-500 text-white text-xs font-semibold px-3 py-1 shadow-md">
+                            {tag}
+                        </span>
+                    </li>
+                ))}
+            </ul>
+            <img
+             class="rounded shadow-2xl shadow-white/10" src={image} alt={`Captura de pantalla del proyecto ${image}`} />
+            <nav class="flex gap-4 mt-8 flex-wrap">
+                <SocialPill href={github}>
+					<GitHubIcon class="size-4 md:size-6" />
+					Ver en GitHub
+				</SocialPill>
+                <SocialPill href={link}>
+					<NavegacionIcon class="size-4 md:size-6" />
+					Ver en Navegador
+				</SocialPill>
+            </nav>
+        </article>
+    ))
+}
